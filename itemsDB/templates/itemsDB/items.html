@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'itemsDB/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div id="item-data-base" class="container-fluid" style="background: #111;">
+		<div class="row">
+			<div id="filters" class="col-3">
+				{% for global_type, types in item_types.items %}
+					<div class="category-global-name">
+						{{ global_type.title }}
+					</div>
+					{% for type in types %}
+						<div class="category-name">
+							<a href="">{{ type }}</a>
+						</div>
+					{% endfor %}
+				{% endfor %}
+			</div>
+			<div id="inventory-content" class="col-9">
+				<div class="inventory-toolbar">
+					<div class="search-line">
+						<form action="" method="POST">
+							{% csrf_token %}
+							<input id="search_text" type="text" name="search_text">
+							<button type="submit"><i class="fas fa-search"></i></button>
+						</form>
+					</div>
+					<div class="rarity-filter row">
+						<div id="common-filter" class="filter-item filter-item-deactivate common-color col-2">
+							Common
+						</div>
+						<div id="magical-filter" class="filter-item magical-color col-2">
+							Magic
+						</div>
+						<div id="rare-filter" class="filter-item rare-color col-2">
+							Rare
+						</div>
+						<div id="epic-filter" class="filter-item filter-item-deactivate epic-color col-2">
+							Epic
+						</div>
+						<div id="legendary-filter" class="filter-item legendary-color col-2">
+							Legendary
+						</div>
+					</div>
+					<div class="components-filter row">
+						<div class="component-filter-item filter-item col-2">
+							Items
+						</div>
+						<div class="component-filter-item filter-item col-2">
+							Blueprints
+						</div>
+						<div class="component-filter-item filter-item col-2">
+							Prefixes
+						</div>
+						<div class="component-filter-item filter-item col-2">
+							Suffixes
+						</div>
+						<div class="component-filter-item filter-item col-2">
+							Components
+						</div>
+						<div class="component-filter-item filter-item col-2">
+							Augments
+						</div>
+					</div>
+				</div>
+				<div id="global-item-list" class="item-list">
+					{% if items %}
+						{% include "layouts/item_list.html" %}
+					{% else %}
+						<div class="inventory-info">
+							<div class="wrap-title">
+								All items: ({{ info.count }})
+							</div>
+							<ul type="none">
+								<li>Helms: ({{ info.helms.count }})</li>
+								<li>Pants: ({{ info.pants.count }})</li>
+							</ul>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

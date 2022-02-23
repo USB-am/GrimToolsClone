@@ -1,0 +1,108 @@
+:root {
+	--title-color: #ede3d1;
+	--main-font: LinbiolinumBold;
+
+	--legendary-color: #a638ff;
+	--epic-color: #338cce;
+	--rare-color: #3eea4a;
+	--magical-color: #f2e61a;
+	--common-color: #fff;
+	--item-type: #e3ba6b!important;
+	--item-description: #bfb08c!important;
+	--item-params: #dec2a3;
+	--param-name: #a88054!important;
+}
+* {
+	margin: 0;
+	padding: 0;
+	/*outline: none;*/
+	text-decoration: none;
+	font-family: Linbiolinum;
+	font-size: 12px;
+}
+input {
+	border-width: 0;
+}
+#toolbar {
+	height: 5vh;
+	background: url("/static/img/toolbar_bg_global.jpg");
+}
+.middle-logo {
+	width: 80%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 0;
+	padding-left: 50%;
+	z-index: 999;
+}
+.wrapper-middle-logo {
+	width: 100%;
+	position: relative;
+	left: -50%;
+	text-align: center;
+}
+.wrapper-middle-logo img {
+	width: 100%;
+	height: 100%;
+}
+.logo {
+	text-align: center;
+}
+.logo a img {
+	height: 4.9vh;
+}
+.nav-item a {
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.6em;
+	color: var(--item-params);
+	z-index: 1000;
+}
+.user-menu {
+	position: absolute;
+	right: 1%;
+	top: 5%;
+	/*display: block;*/
+	display: none;
+	/*width: 250px;
+	height: 350px;*/
+	background: #fff;
+	z-index: 1001;
+	transition: .3s;
+	padding: 1% .5%;
+}
+.user-menu:hover {
+	display: block;
+	/*background: red;*/
+	transition: .3s;
+}
+.show-user-info {
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.6em;
+	color: var(--item-params);
+	z-index: 1000;
+	cursor: pointer;
+}
+.show-user-info:hover .user-menu {
+	display: block;
+	background: blue;
+	transition: .3s;
+}
+.user-menu-top-line:hover {
+	transition: .3s;
+	background: #000;
+}
+.user-img {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: lightgrey;
+	float: left;
+}
+.user-menu-title {
+	font-size: 16px;
+	color: red;
+	float: left;
+}

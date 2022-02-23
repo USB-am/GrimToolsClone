@@ -1,0 +1,39 @@
+.equip-name-filter {
+	margin-bottom: 15px;
+}
+.category-filter-item {
+	float: left;
+	width: 15%;
+	text-align: center;
+	padding: .5% 1%;
+	border: 1px solid #fff;
+	background: #000;
+	margin-right: 1%;
+	cursor: pointer;
+	transition: .3s;
+}
+.category-filter-item:last-child {
+	margin-right: 0;
+}
+.category-filter-item:hover {
+	transition: .3s;
+	background: #222;
+}
+.common-item {
+	color: var(--common-color);
+}
+.magical-item {
+	color: var(--magical-color);
+}
+.rare-item {
+	color: var(--rare-color);
+}
+.epic-item {
+	color: var(--epic-color);
+}
+.legendary-item {
+	color: var(--legendary-color);
+}
+.is-deactivate {
+	color: grey;
+}

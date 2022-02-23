@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{% static 'calculate/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'calculate/css/inventory_style.css' %}">
+{% endblock %}
+
+{% block content %}
+	<section id="hero-block">
+		<div id="hero-window" class="row">
+			<div class="hero-equip col-7">
+				<form action="" method="POST" id="weapon-left-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="weapon-left" class="hero-equip-2-4">
+				</form>
+				<form action="" method="POST" id="weapon-right-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="weapon-right" class="hero-equip-2-4">
+				</form>
+				<form action="" method="POST" id="helmet-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="helm" class="hero-equip-2-2">
+				</form>
+				<div id="swap-weapons" class="hero-equip-1-1"></div>
+				<form action="" method="POST" id="ring-left-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="ring-left" class="hero-equip-1-1">
+				</form>
+				<form action="" method="POST" id="ring-right-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="ring-right" class="hero-equip-1-1">
+				</form>
+				<form action="" method="POST" id="amulet-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="amulet" class="hero-equip-1-1">
+				</form>
+				<form action="" mothod="POST" id="chest_armor-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="chest-armor" class="hero-equip-2-3">
+				</form>
+				<form action="" method="POST" id="legs-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="legs" class="hero-equip-2-3">
+				</form>
+				<form action="" method="POST" id="shoulders-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="shoulders" class="hero-equip-2-2">
+				</form>
+				<form action="" method="POST" id="gloves-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="gloves" class="hero-equip-2-2">
+				</form>
+				<form action="" method="POST" id="boots-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="boots" class="hero-equip-2-2">
+				</form>
+				<form action="" method="POST" id="relic-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="relic" class="hero-equip-1-1">
+				</form>
+				<form action="" method="POST" id="medal-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="medal" class="hero-equip-1-1">
+				</form>
+				<form action="" method="POST" id="belt-form">
+					{% csrf_token %}
+					<input type="submit" value="" id="belt" class="hero-equip-2-1">
+				</form>
+			</div>
+			<div class="hero-stats col-5">
+				<div class="tabs">
+					<div>I</div>
+					<div>II</div>
+					<div>III</div>
+				</div>
+				<div id="tab1" class="hero-main-stats">
+					<div class="hero-level">
+						Level <span>100</span>
+					</div>
+					<div class="stat-title">
+						<div class="stat-block">
+							Attributes
+						</div>
+						<div class="stat-block">
+							<span id="available-points" class="points-count">
+								107 
+							</span>
+							Available Points
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div id="physique-count" class="point-count">0</div>
+							<div id="rem-physique" class="rem-btn stat-btn"></div>
+							<div id="add-physique" class="add-btn stat-btn"></div>
+							<div class="stat-name">
+								Physique
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div id="physique-count-current" class="point-count">
+								50
+							</div>
+							<div id="global-physique" class="stat-value">
+								50
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div id="cunning-count" class="point-count">0</div>
+							<div id="rem-cunning" class="rem-btn stat-btn"></div>
+							<div id="add-cunning" class="add-btn stat-btn"></div>
+							<div class="stat-name">
+								Cunning
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div id="cunning-count-current" class="point-count">
+								50
+							</div>
+							<div id="global-cunning" class="stat-value">
+								50
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div id="spirit-count" class="point-count">0</div>
+							<div id="rem-spirit" class="rem-btn stat-btn"></div>
+							<div id="add-spirit" class="add-btn stat-btn"></div>
+							<div class="stat-name">
+								Spirit
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div id="spirit-count-current" class="point-count">
+								50
+							</div>
+							<div id="global-spirit" class="stat-value">
+								50
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div class="stat-name">
+								Health
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div class="stat-value">
+								{{ person.HEALTH }}
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div class="stat-name">
+								Energy
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div class="stat-value">
+								{{ person.ENERGY }}
+							</div>
+						</div>
+					</div>
+					<div class="stat-title">
+						<div class="stat-block">
+							Combat Stats
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div class="stat-name">
+								Offensive Ability
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div class="stat-value">
+								{{ person.OFFENSIVE_ABILITY }}
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block">
+							<div class="stat-name">
+								Defensive Ability
+							</div>
+						</div>
+						<div class="stat-block align-right">
+							<div class="stat-value">
+								{{ person.DEFENSIVE_ABILITY }}
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block-long">
+							<div class="stat-name">
+								Damage Per Second <a href=#>(?)</a>
+							</div>
+						</div>
+						<div class="stat-block-short align-right">
+							<div class="stat-value">
+								?
+							</div>
+						</div>
+					</div>
+					<div class="stat-line">
+						<div class="stat-block-long">
+							<div class="stat-name">
+								Armor Rating <a href=#>(?)</a>
+							</div>
+						</div>
+						<div class="stat-block-short align-right">
+							<div class="stat-value">
+								0
+							</div>
+						</div>
+					</div>
+					<div class="stat-title">
+						<div class="stat-block">
+							Resistances
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-01 resist-img"></div>
+							<div id="resist-01-val" class="resist-val">
+								-50%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-02 resist-img"></div>
+							<div id="resist-02-val" class="resist-val">
+								-50%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-03 resist-img"></div>
+							<div id="resist-03-val" class="resist-val">
+								-50%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-04 resist-img"></div>
+							<div id="resist-04-val" class="resist-val">
+								-50%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-05 resist-img"></div>
+							<div id="resist-05-val" class="resist-val">
+								-50%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-06 resist-img"></div>
+							<div id="resist-06-val" class="resist-val">
+								-25%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-07 resist-img"></div>
+							<div id="resist-07-val" class="resist-val">
+								-25%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-08 resist-img"></div>
+							<div id="resist-08-val" class="resist-val">
+								-25%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-09 resist-img"></div>
+							<div id="resist-09-val" class="resist-val">
+								0%
+							</div>
+						</div>
+					</div>
+					<div class="resistances">
+						<div class="resist-block">
+							<div class="resist-10 resist-img"></div>
+							<div id="resist-10-val" class="resist-val">
+								-25%
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="hero-hud">
+			<div class="hud-image"></div>
+		</div>
+	</section>
+	<section id="equipments">
+		<div class="equipments-wrapper container-fluid">
+			<div class="equipments-toolbar row">
+				<div id="close-inventory-btn" class="close"></div>
+			</div>
+			<div class="row">
+				<div class="categories col-2">
+					{% for global_type, types in item_types.items %}
+						<div class="equip-filter-separator">
+							{{ global_type.title }}
+						</div>
+						{% for item_type in types %}
+							<div class="equip-filter-list">
+								<div id="{{ type.lower }}-type" class="equip-filter-item">
+									{{ item_type }}
+								</div>
+							</div>
+						{% endfor %}
+					{% endfor %}
+				</div>
+				<div class="equip-list col-10">
+					<div class="equip-toolbar">
+						<div class="equip-name-filter">
+							<form action="" method="POST">
+								{% csrf_token %}
+								<input type="text" name="search_text">
+								<input type="submit" value="Найти">
+							</form>
+						</div>
+						<div class="equip-category-filter row">
+							<div id="item-common-filter" class="common-item category-filter-item">
+								Common
+							</div>
+							<div id="item-magical-filter" class="magical-item category-filter-item">
+								Magic
+							</div>
+							<div id="item-rare-filter" class="rare-item category-filter-item">
+								Rare
+							</div>
+							<div id="item-epic-filter" class="epic-item category-filter-item">
+								Epic
+							</div>
+							<div id="item-legendary-filter" class="legendary-item category-filter-item">
+								Legendary
+							</div>
+						</div>
+					</div>
+					<div id="equip-list" class="row">
+						<h2 style="color: #fff;">Inventory</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="{% static 'calculate/js/inventory.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,224 @@
+* {
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+/*.common-color {
+	color: var(--common-color);
+}
+.magic-color {
+	color: var(--magical-color);
+}
+.rare-color {
+	color: var(--rare-color);
+}
+.epic-color {
+	color: var(--epic-color);
+}
+.legendary-color {
+	color: var(--legendary-color);
+}*/
+
+#item-data-base {
+	padding-top: 1%;
+	height: 95vh;
+}
+.category-global-name {
+	color: var(--item-params);
+	font-size: 1.2em;
+}
+.category-name a {
+	color: var(--param-name);
+	font-size: 1.1em;
+	padding-left: 2.5%;
+	text-decoration: none;
+}
+.category-name a:hover {
+	text-decoration: underline;
+}
+#inventory-content {
+	padding-top: 3%;
+	padding-right: 5%;
+}
+.search-line input {
+	outline: 1px solid #000;
+}
+.filter-item {
+	border: 1px solid #000;
+	padding: .3% 2%;
+	cursor: pointer;
+	text-align: center;
+	background: #000;
+}
+.filter-item:last-child {
+	margin-right: 0;
+}
+/*#common-filter {
+	color: var(--common-color);
+}
+#magic-filter {
+	color: var(--magical-color);
+}
+#rare-filter {
+	color: var(--rare-color);
+}
+#epic-filter {
+	color: var(--epic-color);
+}
+#legendary-filter {
+	color: var(--legendary-color);
+}*/
+.component-filter-item {
+	color: var(--param-name);
+}
+
+/* === inventory === */
+.legendary-color {
+	color: var(--legendary-color);
+}
+.legendary-color:hover {
+	color: var(--legendary-color);
+	text-decoration: underline;
+}
+.epic-color {
+	color: var(--epic-color);
+}
+.epic-color:hover {
+	color: var(--epic-color);
+	text-decoration: underline;
+}
+.rare-color {
+	color: var(--rare-color);
+}
+.rare-color:hover {
+	color: var(--rare-color);
+	text-decoration: underline;
+}
+.magical-color {
+	color: var(--magical-color);
+}
+.magical-color:hover {
+	color: var(--magical-color);
+	text-decoration: underline;
+}
+.common-color {
+	color: var(--common-color);
+}
+.common-color:hover {
+	color: var(--common-color);
+	text-decoration: underline;
+}
+.filter-item-deactivate {
+	color: grey;
+}
+.filter-item-deactivate:hover {
+	color: grey;
+	text-decoration: none;
+}
+
+#equipments {
+	width: 90%;
+	height: 93%;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	display: none;
+	background: #181613;
+	z-index: 1000;
+}
+.equipments-toolbar {
+	height: 4vh;
+}
+.close {
+	padding: 0;
+	width: 25px;
+	height: 25px;
+	background: red;
+	cursor: pointer;
+}
+.close:hover {
+	background: darkred;
+}
+
+.equip-list {
+	height: 85vh;
+	overflow-y: auto;
+}
+.equip-block {
+	position: relative;
+	margin-top: 10px;
+}
+.equip {
+	height: 100%;
+	margin: 1%;
+	padding: 5%;
+	background: #171614;
+}
+.item-rarity {
+	position: relative;
+	width: 68px;
+	height: 132px;
+	padding: 0;
+	background-size: cover;
+}
+.item-image-container {
+	position: relative;
+	width: 64px;
+	padding: 0;
+	top: 50%;
+	left: 50%;
+}
+.item-image {
+	position: absolute;
+	top: -50%;
+	right: 50%;
+}
+.item-description {
+	color: var(--item-description);
+}
+.item-type {
+	color: var(--item-type);
+}
+.item-armor {
+	color: #fff;
+}
+.base_stat_name {
+	color: #949494!important;
+}
+.item-params {
+	padding: 5%;
+	color: var(--item-params);
+}
+.param-name {
+	color: var(--param-name);
+}
+.set-name .set-name-link {
+	color: #4db4b9;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.set-name .set-name-link:hover {
+	color: #4db4b9;
+}
+.set-part {
+	color: var(--item-type);
+}
+.set-part:hover {
+	color: var(--item-type);
+	text-decoration: underline;
+}
+.access_condition {
+	margin-top: 15px;
+	color: #999!important;
+}
+.dlc-name {
+	position: absolute;
+	bottom: 0;
+	right: 5%;
+	padding: 4px 8px;
+	background: #21201e;
+}
+.dlc-name span {
+	color: #dec2a3;
+}
+/* == /inventory === */
