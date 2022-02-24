@@ -323,10 +323,10 @@
 						<div class="equip-filter-separator">
 							{{ global_type.title }}
 						</div>
-						{% for item_type in types %}
+						{% for type in types %}
 							<div class="equip-filter-list">
 								<div id="{{ type.lower }}-type" class="equip-filter-item">
-									{{ item_type }}
+									{{ type }}
 								</div>
 							</div>
 						{% endfor %}
@@ -366,5 +366,10 @@
 			</div>
 		</div>
 	</section>
+	<script>
+		var CSRF_TOKEN = "{{ csrf_token }}";
+		var URL_OPEN_INVENTORY = "{% url 'home' %}";
+	</script>
+	<script src="{% static 'calculate/js/hero_stats.js' %}"></script>
 	<script src="{% static 'calculate/js/inventory.js' %}"></script>
 {% endblock %}
