@@ -10,7 +10,10 @@ const OPENING_BLOCKS = ['helm', 'amulet', 'chest-armor', 'shoulders'];
 for (var i = 0; i < OPENING_BLOCKS.length; i++) {
 	var now_id = OPENING_BLOCKS[i];
 	var el = document.getElementById(now_id);
-	el.onclick = function () {open_inventory(now_id);}
+	el.onclick = function () {
+		var id_name = this.attributes['id'].value;
+		open_inventory(id_name);
+	};
 }
 
 function open_inventory(item_type) {
