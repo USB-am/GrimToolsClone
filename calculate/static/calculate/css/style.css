@@ -297,38 +297,43 @@
 /* /equip-filter */
 
 /* equip-list */
-.legendary-color {
+.color-4 {
 	color: var(--legendary-color);
+	text-decoration: none;
 }
-.legendary-color:hover {
+.color-4:hover {
 	color: var(--legendary-color);
 	text-decoration: underline;
 }
-.epic-color {
+.color-3 {
 	color: var(--epic-color);
+	text-decoration: none;
 }
-.epic-color:hover {
+.color-3:hover {
 	color: var(--epic-color);
 	text-decoration: underline;
 }
-.rare-color {
+.color-2 {
 	color: var(--rare-color);
+	text-decoration: none;
 }
-.rare-color:hover {
+.color-2:hover {
 	color: var(--rare-color);
 	text-decoration: underline;
 }
-.magical-color {
+.color-1 {
 	color: var(--magical-color);
+	text-decoration: none;
 }
-.magical-color:hover {
+.color-1:hover {
 	color: var(--magical-color);
 	text-decoration: underline;
 }
-.common-color {
+.color-0 {
 	color: var(--common-color);
+	text-decoration: none;
 }
-.common-color:hover {
+.color-0:hover {
 	color: var(--common-color);
 	text-decoration: underline;
 }

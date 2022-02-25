@@ -16,12 +16,13 @@ for (var i = 0; i < OPENING_BLOCKS.length; i++) {
 	};
 }
 
-function open_inventory(item_type) {
+async function open_inventory(item_type) {
 	document.getElementById('equipments').style.display = 'block';
 	var data = {
+		'request_type': 'open_inventory',
 		'item_type': item_type,
 	}
-	var items = request(URL_OPEN_INVENTORY, data);
+	var items = await request(URL_OPEN_INVENTORY, data);
 	var equip_list = document.getElementById('equip-list');
 	equip_list.innerHTML = items;
 }
