@@ -12,6 +12,7 @@ def calculate(request):
 		'title': 'Calculate page',
 		'item_types': ItemManager.ITEM_TYPES,
 	}
+	print(list(ItemManager.EQUIP_CELL.keys()))
 
 	return render(request, 'calculate/calculate.html', context)
 
