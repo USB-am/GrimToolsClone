@@ -9,7 +9,8 @@ class MasterClass(models.Model):
 	title = models.CharField(max_length=50, verbose_name='Название')
 	point_count = models.PositiveIntegerField(
 		verbose_name='Points', default=0,
-		validators=[MaxValueValidator(50)])
+		validators=[MaxValueValidator(50)]
+	)
 
 	def __str__(self):
 		return self.title
@@ -42,6 +43,7 @@ class Person(models.Model):
 		on_delete=models.CASCADE)
 	mastery_class = models.ForeignKey(Mastery, verbose_name='Мастерство',
 		on_delete=models.SET_NULL, blank=True, null=True)
+	at_create = models.DateTimeField(auto_now=True, verbose_name='Дата создание')
 	weapon_left = models.ForeignKey(Axe, verbose_name='Левая рука',
 		on_delete=models.CASCADE, blank=True, null=True)
 	weapon_right = models.ForeignKey(Shield, verbose_name='Правая рука',
@@ -72,4 +74,9 @@ class Person(models.Model):
 		on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
-		return self.mastery_class
+		return f'Person ({self.pk})' # self.mastery_class.title
+
+	class Meta:
+		verbose_name = 'Персонаж'
+		verbose_name_plural = 'Персонажи'
+		ordering = ['at_create']
