@@ -38,7 +38,27 @@ async function request(url, data) {
 		body: JSON.stringify(data),
 	})
 	const result = await response.text()
+	bind_all_items();
+
 	return result
 }
 /* = SEND REQUEST TO SERVER = */
 /* === OPEN INVENTORY === */
+
+/* === SELECT ITEM === */
+var ACTIVE_ITEM_SELECTED = null;
+
+function bind_all_items() {
+	var items = document.getElementsByClassName('equip');
+	for (var i = 0; i < items.length; i++) {
+		items[i].onclick = function () {
+			if (ACTIVE_ITEM_SELECTED != null) {
+				ACTIVE_ITEM_SELECTED.classList.remove('selected-equip');
+			}
+			this.classList.add('selected-equip');
+			ACTIVE_ITEM_SELECTED = this;
+			// alert(this.getElementsByClassName('item-pk')[0].innerHTML);
+		}
+	}
+}
+/* === SELECT ITEM === */

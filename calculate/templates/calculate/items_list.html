@@ -1,89 +1,92 @@
 {% load static %}
 
-
-	<div class="container-fluid">
-		<div class="row">
-			{% for item in items %}
-				<div class="equip-block col-md-6 col-sm-12" onclick="set_item_to_person({{ item.pk }})">
-					<div class="equip">
-						<div class="row">
-							{% if item.image.height <= "68px" %}
-								<div class="item-rarity col-3" style="background: url('/static/img/{{ item.color }}_item.png') no-repeat; background-size: 68px 68px; height: 68px;">
-									<div class="item-image-container" style="width: {{ item.image.width }}; height: {{ item.image.height }};">
-										<div class="item-image" style="background: url('/static/img/items.png') {{item.image.bias.x }} {{ item.image.bias.y }} no-repeat; width: {{ item.image.width }}; height: {{ item.image.height }};"></div>
-									</div>
+<div class="container-fluid">
+	<div class="row">
+		{% for item in items %}
+			<div class="equip-block col-md-6 col-sm-12">
+				<div class="equip">
+					<div class="row">
+						{% if item.image.height <= "68px" %}
+							<div class="item-rarity col-3" style="background: url('/static/img/{{ item.color }}_item.png') no-repeat; background-size: 68px 68px; height: 68px;">
+								<div class="item-image-container" style="width: {{ item.image.width }}; height: {{ item.image.height }};">
+									<div class="item-image" style="background: url('/static/img/items.png') {{item.image.bias.x }} {{ item.image.bias.y }} no-repeat; width: {{ item.image.width }}; height: {{ item.image.height }};"></div>
 								</div>
-							{% else %}
-								<div class="item-rarity col-3" style="background: url('/static/img/{{ item.color }}_item.png') no-repeat; background-size: 68px {{ item.image.height }}; height: {{ item.image.height }};">
-									<div class="item-image-container" style="width: {{ item.image.width }}; height: {{ item.image.height }};">
-										<div class="item-image" style="background: url('/static/img/items.png') {{item.image.bias.x }} {{ item.image.bias.y }} no-repeat; width: {{ item.image.width }}; height: {{ item.image.height }};"></div>
-									</div>
+							</div>
+						{% else %}
+							<div class="item-rarity col-3" style="background: url('/static/img/{{ item.color }}_item.png') no-repeat; background-size: 68px {{ item.image.height }}; height: {{ item.image.height }};">
+								<div class="item-image-container" style="width: {{ item.image.width }}; height: {{ item.image.height }};">
+									<div class="item-image" style="background: url('/static/img/items.png') {{item.image.bias.x }} {{ item.image.bias.y }} no-repeat; width: {{ item.image.width }}; height: {{ item.image.height }};"></div>
+								</div>
+							</div>
+						{% endif %}
+						<div class="equip-info col-9">
+							<div class="item-name">
+								<a href="#" class="color-{{ item.color }}">
+									{{ item.name }}
+								</a>
+							</div>
+							{% if item.description %}
+								<div class="item-description">
+									{{ item.description }}
 								</div>
 							{% endif %}
-							<div class="equip-info col-9">
-								<div class="item-name">
-									<a href="#" class="color-{{ item.color }}">
-										{{ item.name }}
-									</a>
-								</div>
-								{% if item.description %}
-									<div class="item-description">
-										{{ item.description }}
-									</div>
-								{% endif %}
-								<div class="item-type">
-									{{ item.type }}
-								</div>
-								<div class="item-armor">
-									{% for base_stat in item.base_stat %}
-										<div>
-											<span class="base_stat">{{ base_stat.state }}</span>
-											<span class="base_stat_name">{{ base_stat.state_name }}</span>
-										</div>
-									{% endfor %}
-								</div>
-								<div class="item-params">
-									{% for param in item.skill_params %}
-										<div>
-											{{ param.state }}
-											<span class="param-name">
-												{{ param.state_name }}
-											</span>
-										</div>
-									{% endfor %}
-								</div>
-								{% if item.set_name != None %}
-									<div class="item-from-set">
-										<div class="set-name">
-											<a href="#" class="set-name-link">
-												{{ item.set_name }}
-											</a>
-										</div>
-										<ul type="none" class="parts-set">
-											<li><a href=# class="set-part">{{ item.name }}</a></li>
-											{% for set_part in item.set_parts %}
-												<li>
-													<a href=# class="set-part">{{ set_part }}</a>
-												</li>
-											{% endfor %}
-										</ul>
-									</div>
-								{% endif %}
-								<div class="access_condition">
-									{% for condition in item.access_condition %}
-										<div>{{ condition }}</div>
-									{% endfor %}
-								</div>
-								{% if item.dlc_name != None %}
-									<div class="dlc-name">
-										<span>{{ item.dlc_name }}</span>
-									</div>
-								{% endif %}
-								<div></div>
+							<div class="item-type">
+								{{ item.type }}
 							</div>
+							<div class="item-armor">
+								{% for base_stat in item.base_stat %}
+									<div>
+										<span class="base_stat">{{ base_stat.state }}</span>
+										<span class="base_stat_name">{{ base_stat.state_name }}</span>
+									</div>
+								{% endfor %}
+							</div>
+							<div class="item-params">
+								{% for param in item.skill_params %}
+									<div>
+										{{ param.state }}
+										<span class="param-name">
+											{{ param.state_name }}
+										</span>
+									</div>
+								{% endfor %}
+							</div>
+							{% if item.set_name != None %}
+								<div class="item-from-set">
+									<div class="set-name">
+										<a href="#" class="set-name-link">
+											{{ item.set_name }}
+										</a>
+									</div>
+									<ul type="none" class="parts-set">
+										<li><a href=# class="set-part">{{ item.name }}</a></li>
+										{% for set_part in item.set_parts %}
+											<li>
+												<a href=# class="set-part">{{ set_part }}</a>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+							{% endif %}
+							<div class="access_condition">
+								{% for condition in item.access_condition %}
+									<div>{{ condition }}</div>
+								{% endfor %}
+							</div>
+							{% if item.dlc_name != None %}
+								<div class="dlc-name">
+									<span>{{ item.dlc_name }}</span>
+								</div>
+							{% endif %}
+							<div></div>
 						</div>
 					</div>
 				</div>
-			{% endfor %}
-		</div>
+			</div>
+		{% endfor %}
 	</div>
+</div>
+
+<script type="text/javascript">
+	// bind_all_items();
+</script>
